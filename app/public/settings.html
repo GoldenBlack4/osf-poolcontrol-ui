@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1724">
+  <title>Pool · Settings</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="back-title">
+      <a href="./" class="icon-btn" data-i18n-aria="back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div>
+        <h1 data-i18n="settingsTitle">Settings</h1>
+        <p class="sub" id="status" data-i18n="loading">Loading…</p>
+      </div>
+    </div>
+    <div class="top-actions">
+    <select id="lang" class="lang-select"></select>
+    <button id="reload" class="icon-btn" data-i18n-aria="refresh" data-i18n-title="refresh">
+      <svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v4h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    </div>
+  </header>
+
+  <main id="content">
+    <div class="skeleton card"></div>
+    <div class="skeleton card"></div>
+  </main>
+
+  <!-- Slot editor (bottom sheet) -->
+  <div id="sheet" class="sheet" hidden>
+    <div class="sheet-bg" data-close></div>
+    <form class="sheet-panel card" id="editor">
+      <div class="sheet-grip"></div>
+      <h3 id="edTitle"></h3>
+
+      <label class="field">
+        <span id="edFromLabel"></span>
+        <div class="field-row">
+          <select id="edFromDay"></select>
+          <input type="time" id="edFromTime" required step="60">
+        </div>
+      </label>
+
+      <label class="field" id="edToWrap">
+        <span data-i18n="end">End</span>
+        <div class="field-row">
+          <select id="edToDay"></select>
+          <input type="time" id="edToTime" step="60">
+        </div>
+      </label>
+
+      <p class="hint" id="edHint">&nbsp;</p>
+
+      <div class="sheet-actions">
+        <button type="button" class="btn ghost danger-txt" id="edDelete" data-i18n="del">Delete</button>
+        <span class="spacer"></span>
+        <button type="button" class="btn ghost" data-close data-i18n="cancel">Cancel</button>
+        <button type="submit" class="btn primary" id="edSave" data-i18n="save">Save</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="settings.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "osf-poolcontrol-ui",
+  "version": "1.0.0",
+  "description": "Unofficial modern web UI and Home Assistant (MQTT) bridge for OSF PoolControl .NET pool controllers",
+  "type": "module",
+  "main": "server.js",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/GoldenBlack4/osf-poolcontrol-ui.git" },
+  "keywords": ["osf", "poolcontrol", "pool", "home-assistant", "mqtt", "swimming-pool"],
+  "scripts": {
+    "start": "node server.js",
+    "mock": "node mock/mock-osf.js",
+    "dev": "OSF_HOST=http://127.0.0.1:8099 OSF_PIN=1234 node server.js",
+    "test": "node test/smoke.mjs"
+  },
+  "dependencies": {
+    "mqtt": "^5.10.0"
+  },
+  "engines": { "node": ">=20" }
+}

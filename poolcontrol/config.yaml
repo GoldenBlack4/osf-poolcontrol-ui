@@ -1,0 +1,40 @@
+name: OSF PoolControl UI
+version: "1.0.0"
+slug: osf_poolcontrol
+description: Unofficial modern UI and MQTT bridge for OSF PoolControl .NET pool controllers
+url: https://github.com/GoldenBlack4/osf-poolcontrol-ui
+arch:
+  - amd64
+  - aarch64
+  - armv7
+image: ghcr.io/goldenblack4/osf-poolcontrol-ui
+init: false
+startup: application
+boot: auto
+ingress: true
+ingress_port: 8080
+panel_icon: mdi:pool
+panel_title: Pool
+ports:
+  8080/tcp: null
+ports_description:
+  8080/tcp: Web UI outside Home Assistant (optional, disabled by default)
+services:
+  - mqtt:want
+options:
+  controller_host: ""
+  pin: ""
+  poll_interval: 10
+  aux_starts_pump: true
+  mqtt_device_name: Pool
+schema:
+  controller_host: str
+  pin: match(^\d{4}$)?
+  poll_interval: int(5,300)
+  aux_starts_pump: bool
+  mqtt_device_name: str?
+  mqtt_url: str?
+  mqtt_user: str?
+  mqtt_password: password?
+  mqtt_prefix: str?
+  app_password: password?

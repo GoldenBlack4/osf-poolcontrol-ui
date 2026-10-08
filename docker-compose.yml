@@ -1,0 +1,12 @@
+# Standalone installation (without the Home Assistant add-on).
+# 1. cp app/.env.example .env   and edit it
+# 2. docker compose up -d       then open http://<server>:8090
+services:
+  osf-poolcontrol-ui:
+    image: ghcr.io/goldenblack4/osf-poolcontrol-ui:latest
+    # build: ./app            # use this line instead of "image" to build locally
+    container_name: osf-poolcontrol-ui
+    restart: unless-stopped
+    ports:
+      - "8090:8080"
+    env_file: .env

@@ -1,0 +1,30 @@
+configuration:
+  controller_host:
+    name: Controller address
+    description: IP address of the PoolControl .NET, e.g. 192.168.1.50
+  pin:
+    name: User PIN
+    description: 4-digit user PIN of the controller (needed to change anything)
+  poll_interval:
+    name: Polling interval (s)
+    description: How often the controller is read
+  aux_starts_pump:
+    name: Light starts the pump
+    description: The AUX output (pool light) is usually interlocked with the filter pump. Turning the light on starts the pump first.
+  mqtt_device_name:
+    name: Device name in Home Assistant
+  mqtt_url:
+    name: MQTT broker URL
+    description: Leave empty to use the Mosquitto add-on automatically
+  mqtt_user:
+    name: MQTT user
+  mqtt_password:
+    name: MQTT password
+  mqtt_prefix:
+    name: MQTT topic prefix
+    description: Default poolcontrol
+  app_password:
+    name: Web UI password
+    description: Only used when the optional port 8080 is exposed (user pool)
+network:
+  8080/tcp: Web UI outside Home Assistant (optional)
